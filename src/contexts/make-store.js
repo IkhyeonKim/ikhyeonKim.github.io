@@ -8,8 +8,8 @@ export default function makeStore(reducer, initialState) {
     const [store, dispatch] = useReducer(reducer, initialState);
 
     return (
-      <dispatchContext.Provider>
-        <storeContext.Provider>{children}</storeContext.Provider>
+      <dispatchContext.Provider value={dispatch}>
+        <storeContext.Provider value={store}>{children}</storeContext.Provider>
       </dispatchContext.Provider>
     );
   };
